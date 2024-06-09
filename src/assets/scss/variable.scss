@@ -1,0 +1,29 @@
+@import "./font";
+
+//$mainColor : #00d4ff;
+//$btnColor : #ffd900;
+//$accentColor : #e6e6e6;
+$mainColor : #4258F0;
+$accentColor : #5ecaeb;
+$btnColor : #ebca5e;
+//$btnColor2 : #ebb96e;
+$writingColor : #2e2e2e;
+$whiteWritingColor : #e6E6E6;
+
+p, li, span{
+  color: $writingColor;
+  font-family: 'Conthrax', sans-serif;
+  cursor: default;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: $writingColor;
+  font-family: 'Airstrike', sans-serif;
+  font-size: 24px;
+  cursor: default;
+}
+
+//body{
+//  background: url("../img/bg-galaxy.jpg") center/cover no-repeat;
+//  image-rendering: optimizeQuality;
+//}

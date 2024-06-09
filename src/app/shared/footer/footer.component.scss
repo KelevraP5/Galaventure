@@ -1,0 +1,41 @@
+@import "../../../styles";
+
+footer{
+  border-top: 2px solid $writingColor;
+  padding: 2rem 0 1rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  .footer-wrap{
+    width: 90%;
+    margin: 0 auto;
+
+    .liste-titre{
+      display: flex;
+      justify-content: space-between;
+
+      .rs-et-titre{
+        //background: red;
+        display: flex;
+        flex-direction: column;
+
+        .rs{
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+
+          .logo-rs{
+            width: 50px;
+            height: 54px;
+            padding-top: 1rem;
+
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

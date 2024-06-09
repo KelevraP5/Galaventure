@@ -1,0 +1,160 @@
+@import "../../../styles";
+
+section{
+  margin-bottom: 64px;
+}
+
+main {
+  flex-grow: 1;
+
+  #accueil{
+    padding-top: 117px;
+    .bg-img{
+      height: calc(100dvh - 117px);
+      background: url("https://picsum.photos/1000/3000") center/cover no-repeat;
+
+      .wrap{
+        height: calc(50dvh + 117px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .title, .intro{
+          width: 80dvw;
+          text-align: center;
+          padding-block: .5rem;
+          background: rgba($accentColor, .7);
+          backdrop-filter: blur(4px);
+        }
+
+        .title{
+          font-size: 32px;
+        }
+
+        .intro{
+          font-size: 20px;
+
+          p:nth-child(2), p:nth-child(3){
+            padding-top: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  #joueur{
+    .card-joueur{
+      background: rgba($accentColor, .8);
+
+      .wrap-joueur{
+        width: 95%;
+        margin: 0 auto;
+        padding: 2rem 0;
+
+        .sub-title{
+          background: rgba($mainColor, .3);
+          padding: .5rem;
+          margin-bottom: 4rem;
+          text-align: center;
+        }
+
+        .all-joueur{
+          display: flex;
+          flex-direction: column;
+          gap: 57px;
+
+          .all-infos{
+            background: $accentColor;
+            height: 276px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .img, .content{
+              width: 50%;
+              height: 100%;
+            }
+
+            .img{
+              img{
+                width: 100%;
+                height: 100%;
+                image-rendering: smooth;
+              }
+            }
+
+            .content{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              p{
+                width: 90%;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #MJ{
+    .card-MJ{
+      background: rgba($accentColor, .8);
+
+      .wrap-MJ{
+        width: 95%;
+        margin: 0 auto;
+        padding: 2rem 0;
+
+        .sub-title{
+          background: rgba($mainColor, .3);
+          padding: .5rem;
+          margin-bottom: 4rem;
+          text-align: center;
+        }
+
+        .all-MJ{
+          display: flex;
+          flex-direction: column;
+          gap: 57px;
+
+          .all-infos{
+            background: $accentColor;
+            height: 276px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+
+            .img, .content{
+              width: 50%;
+              height: 100%;
+            }
+
+            .img{
+              img{
+                width: 100%;
+                height: 100%;
+                image-rendering: smooth;
+              }
+            }
+
+            .content{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              p{
+                width: 90%;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

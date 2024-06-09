@@ -1,0 +1,15 @@
+@import "../../../styles";
+
+section{
+  margin-bottom: 64px;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  main{
+    flex-grow: 1;
+  }
+}
