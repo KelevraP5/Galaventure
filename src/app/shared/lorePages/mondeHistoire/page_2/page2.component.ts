@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
-  selector: 'app-page1',
+  selector: 'app-page2',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './page1.component.html',
-  styleUrl: './page1.component.scss'
+  templateUrl: './page2.component.html',
+  styleUrl: './page2.component.scss'
 })
-export class Page1Component {
- title : string = 'Page 1';
+export class Page2Component {
+ title : string = 'Page 2';
 }
