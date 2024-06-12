@@ -11,11 +11,5 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 export class FooterComponent {
   nb_campagne : number = 165;
 
-  // lienRS1 : string = 'lien discord';
-  // lienRS2 : string = 'lien twitter';
-  // lienRS3 : string = 'lien facebook';
-
-  altRS1 : string = 'logo discord';
-  altRS2 : string = 'logo twitter';
-  altRS3 : string = 'logo facebook';
+  logoRS1 : string = "fa-brands fa-discord";
 }

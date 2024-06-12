@@ -11,5 +11,99 @@ section{
 
   main{
     flex-grow: 1;
+
+    #lore{
+      height: calc(100dvh - 117px);
+
+      .wrap{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .book{
+          border: 1px dashed black;
+          width: 30%;
+          height: 100%;
+          position: relative;
+
+          .paper{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            perspective: 1500px;
+
+            .front, .back{
+              background-color: lightblue;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              position: absolute;
+              transform-origin: left;
+              transition: transform .5s;
+            }
+
+            .front{
+              z-index: 1;
+              backface-visibility: hidden;
+              border-left: 3px solid white;
+            }
+
+            .back{
+              z-index: 0;
+            }
+
+            .front-content, .back-content{
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .back-content{
+              transform: rotateY(180deg);
+            }
+
+            .front-content button, .back-content button{
+              width: 40px;
+              height: 30px;
+              background: magenta;
+              //background: transparent;
+              border: none;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              //z-index: 10;
+
+              &:hover{
+                cursor: pointer;
+              }
+            }
+          }
+
+          #p1{
+            z-index : 2;
+          }
+
+          #p2{
+            z-index: 1;
+          }
+
+          // gère quand les pages se tournent
+          .flipped .front, .flipped .back{
+            transform: rotateY(-180deg);
+
+            .back-content button{
+              left: 0;
+            }
+          }
+        }
+      }
+    }
   }
+
 }
