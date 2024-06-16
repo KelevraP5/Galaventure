@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass } from '@angular/common';
+import {NgClass, NgForOf} from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "../../shared/header/header.component";
 import {FooterComponent} from "../../shared/footer/footer.component";
@@ -9,7 +9,7 @@ import {Page2Component} from "../../shared/lorePages/mondeHistoire/page_2/page2.
 @Component({
   selector: 'app-lore',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, NgClass, Page1Component, Page2Component],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, NgClass, Page1Component, Page2Component, NgForOf],
   templateUrl: './lore.component.html',
   styleUrl: './lore.component.scss'
 })
@@ -93,5 +93,17 @@ export class LoreComponent {
       }
       this.currentLocation--;
     }
+  }
+
+  generateLoreTags(){
+    const navLore = document.querySelectorAll('.lore-nav ul');
+    const nbOfPages = this.getAllPages();
+
+    for (let i = 0; i <= nbOfPages; i++){
+      const li = document.createElement('li');
+
+      navLore[i].appendChild(li);
+    }
+    return navLore;
   }
 }

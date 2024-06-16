@@ -112,5 +112,74 @@ section{
         }
       }
     }
+
+    #races{
+      .wrap{
+        .races-cards{
+          background: lime;
+          height: 100%;
+        }
+
+        .title{
+          text-align: center;
+          padding: 2rem;
+          background: lightblue;
+        }
+
+        .cards{
+          display: flex;
+          gap: 7px;
+          border: 1px solid black;
+          height: 100%;
+
+          .card{
+            background: magenta;
+            width: calc(100%/4);
+            //height: ;
+            padding-inline: .5rem;
+            padding-block: 1rem;
+
+            .race-name{
+              background: lime;
+              margin-bottom: 1rem;
+              text-align: center;
+            }
+
+            .race-content{
+              background: blueviolet;
+              height: 90%;
+
+              ul{
+                .resume, .bonus-stats, .bonus-comp{
+                  padding-left: 1.5rem;
+                  position: relative;
+                }
+                .resume:before, .bonus-stats:before, .bonus-comp:before{
+                  content: "•";
+                  position: absolute;
+                  left: .5rem;
+                  top: 0;
+                  color: #000;
+                }
+
+                .bonus-stats.first, .bonus-comp.first{
+                  padding-top: 1rem;
+                }
+
+                .bonus-stats.first:before, .bonus-comp.first:before{
+                  content: "•";
+                  position: absolute;
+                  left: .5rem;
+                  top: 1rem;
+                  color: #000;
+                }
+              }
+            }
+
+
+          }
+        }
+      }
+    }
   }
 }
