@@ -23,6 +23,20 @@ h1, h2, h3, h4, h5, h6{
   cursor: default;
 }
 
+label{
+  color: $writingColor;
+  font-family: 'Airstrike', sans-serif;
+  font-size: 18px;
+  cursor: default;
+}
+
+button{
+  color: $writingColor;
+  font-family: 'Airstrike', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 //body{
 //  background: url("../img/bg-galaxy.jpg") center/cover no-repeat;
 //  image-rendering: optimizeQuality;

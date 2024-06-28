@@ -5,6 +5,7 @@ import {LoreComponent} from "./pages/lore/lore.component";
 import {MjComponent} from "./pages/mj/mj.component";
 import {ReglesComponent} from "./pages/regles/regles.component";
 import {JoueurComponent} from "./pages/joueur/joueur.component";
+import {AuthComponent} from "./pages/auth/auth.component";
 
 export const routes: Routes = [
   {
@@ -32,10 +33,10 @@ export const routes: Routes = [
     component: JoueurComponent
   },
 
-  // {
-  //   path: "auth",
-  //   component:
-  // },
+  {
+    path: "auth",
+    component: AuthComponent
+  },
 
   {
     path: '**',
