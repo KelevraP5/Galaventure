@@ -101,7 +101,6 @@ section{
             z-index: 1;
           }
 
-          // gère quand les pages se tournent
           .flipped .front, .flipped .back{
             transform: rotateY(-180deg);
 
@@ -116,7 +115,6 @@ section{
     #races{
       .wrap{
         .races-cards{
-          background: lime;
           height: 100%;
         }
 
@@ -135,7 +133,6 @@ section{
           .card{
             background: magenta;
             width: calc(100%/4);
-            //height: ;
             padding-inline: .5rem;
             padding-block: 1rem;
 
@@ -175,8 +172,6 @@ section{
                 }
               }
             }
-
-
           }
         }
       }

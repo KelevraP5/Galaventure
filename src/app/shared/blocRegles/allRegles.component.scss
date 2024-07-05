@@ -1,0 +1,24 @@
+.wrap-regle {
+  border-right: 1px solid #4258F0;
+  padding: 1rem;
+
+  .regle-titre {
+    background: hotpink;
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .regle-list {
+    ul {
+      list-style-type: disc;
+      padding: 0 1rem 0 1.5rem;
+    }
+
+    li {
+      text-align: justify;
+      padding-top: 1rem;
+    }
+  }
+}
+

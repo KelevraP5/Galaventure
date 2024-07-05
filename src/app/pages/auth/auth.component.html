@@ -3,78 +3,80 @@
     <app-header></app-header>
   </div>
 
-  <main>
-    <div class="form-parent">
-      <div class="connect-form">
-          <div class="form-and-title">
-            <div class="connect-title">
-              <h3>Connectez-vous à votre compte !</h3>
+    <main>
+      <div class="wrap">
+        <div class="form-parent">
+          <!-- Formulaire de connexion -->
+          <div class="connect-form">
+            <div class="form-and-title">
+              <div class="connect-title">
+                <h3>Connectez-vous à votre compte !</h3>
+              </div>
+
+              <form action="/login" method="post" novalidate>
+                <div class="input-group">
+                  <label for="user-connect">Votre email ou pseudo</label>
+                  <input type="text" id="user-connect" name="username" required>
+                  <span class="error"></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="pwd-connect">Votre mot de passe</label>
+                  <input type="password" id="pwd-connect" name="password" required>
+                  <span class="error"></span>
+                </div>
+
+                <button type="submit">Se connecter</button>
+              </form>
             </div>
-
-            <form action="/login" method="post" novalidate>
-              <div class="input-group">
-                <label for="user-connect">Votre email ou pseudo</label>
-                <input type="email" id="user-connect" name="infos-connect">
-                <span class="error"></span>
-              </div>
-
-              <div class="input-group">
-                <label for="pwd-connect">Votre mot de passe</label>
-                <input type="password" id="pwd-connect" name="infos-connect">
-                <span class="error"></span>
-              </div>
-
-              <button type="submit">Se connecter</button>
-            </form>
           </div>
-      </div>
 
-      <div class="register-form">
-          <div class="form-and-title">
-            <div class="register-title">
-              <h3>Rejoignez l'aventure maintenant !</h3>
-            </div>
-
-            <form action="/register" method="post" novalidate>
-              <div class="infos-user">
-
-                <div class="input-group">
-                  <label for="mail-register">Votre email</label>
-                  <input type="email" id="mail-register" name="infos-register">
-                  <span class="error"></span>
-                </div>
-
-                <div class="input-group">
-                  <label for="pseudo-register">Votre pseudo</label>
-                  <input type="text" id="pseudo-register" name="infos-register">
-                  <span class="error"></span>
-                </div>
+          <!-- Formulaire d'inscription -->
+          <div class="register-form">
+            <div class="form-and-title">
+              <div class="register-title">
+                <h3>Rejoignez l'aventure maintenant !</h3>
               </div>
 
-              <div class="passwords">
-                <div class="input-group">
-                  <label for="pwd1-register">Votre mot de passe</label>
-                  <input type="password" id="pwd1-register" name="infos-register">
-                  <span class="error"></span>
+              <form action="/register" method="post" novalidate>
+                <div class="infos-user">
+                  <div class="input-group">
+                    <label for="mail-register">Votre email</label>
+                    <input type="email" id="mail-register" name="email" required>
+                    <span class="error"></span>
+
+                  </div>
+
+                  <div class="input-group">
+                    <label for="pseudo-register">Votre pseudo</label>
+                    <input type="text" id="pseudo-register" name="username" required>
+                    <span class="error"></span>
+                  </div>
+                </div>
+
+                <div class="passwords">
+                  <div class="input-group">
+                    <label for="pwd1-register">Votre mot de passe</label>
+                    <input type="password" id="pwd1-register" name="password" required minlength="6">
+                    <span class="error"></span>
+                  </div>
                 </div>
 
                 <div class="input-group">
                   <label for="pwd2-register">Confirmez votre mot de passe</label>
-                  <input type="password" id="pwd2-register" name="infos-register">
+                  <input type="password" id="pwd2-register" name="confirmPassword" required>
                   <span class="error"></span>
                 </div>
-              </div>
 
-              <button type="submit">S'inscrire</button>
-            </form>
+                <button type="submit">S'inscrire</button>
+              </form>
+            </div>
           </div>
-
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
   <div class="footer">
     <app-footer></app-footer>
   </div>
-
 </div>

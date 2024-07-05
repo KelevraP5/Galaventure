@@ -11,5 +11,29 @@ section{
 
   main{
     flex-grow: 1;
+
+    .all-regles{
+      border: 1px solid #4258F0;
+      border-right: transparent;
+      display: flex;
+    }
+
+    #classes{
+      .classe-titre{
+        background: magenta;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .all-classes{
+        display: flex;
+        gap: .5rem;
+
+        .classe{
+          background: blue;
+          padding: 1rem;
+        }
+      }
+    }
   }
 }

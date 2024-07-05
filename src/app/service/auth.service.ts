@@ -25,17 +25,20 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { username, password })
-      .pipe(map(response => {
-        if (response && response.token) {
-          localStorage.setItem('currentUser', JSON.stringify({ username, token: response.token }));
-          this.currentUserSubject.next({ username, token: response.token });
-        }
-        return response;
+    return this.http.post<any>(`${this.apiUrl}/user/login`, { username, password })
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
       }));
   }
 
-  logout(): void {
+  register(username: string, email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/user/register`, { username, email, password });
+  }
+
+  logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['/login']);

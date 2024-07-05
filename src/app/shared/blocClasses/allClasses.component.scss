@@ -1,0 +1,25 @@
+  .wrap-classe{
+    display: flex;
+    flex-direction: column;
+
+    .classe-titre{
+      text-align: center;
+      background: #5ecaeb;
+      padding: .3rem;
+    }
+
+    .classe-list{
+      ul{
+        list-style-type: disc;
+        padding: .5rem 1rem;
+        background: lime;
+        margin-top: 1rem;
+        div:not(.resume){
+          margin-top: 1rem;
+        }
+        div{
+          padding-left: .5rem;
+        }
+      }
+    }
+  }
