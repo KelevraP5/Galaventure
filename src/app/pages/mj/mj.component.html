@@ -4,7 +4,52 @@
   </div>
 
   <main>
-    <h1>PAGE MAITRE DU JEU</h1>
+    <section id="infos-parties">
+      <div class="wrap">
+        <div class="bandeau-parties">
+          <div class="left">
+            <div class="title">
+              <h4>Vos Parties</h4>
+            </div>
+
+            <div class="recherche-parties">
+              <input type="text" id="recherche_partie" name="recherche_partie" placeholder="Rechercher une partie">
+
+              <button type="submit"><i class="{{logoRecherche}}"></i></button>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="triage-parties">
+              <div class="input-and-arrows">
+                <div class="creation-partie">
+                  <input type="text" id="creation_partie" name="triage_partie" placeholder="Date de création" readonly>
+                  <div class="arrows">
+                    <div class="up"></div>
+                    <div class="down"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-and-arrows">
+                <div class="date-partie">
+                  <input type="text" id="partie_jouee" name="triage_partie" placeholder="Date partie jouée" readonly>
+
+                  <div class="arrows">
+                    <div class="up"></div>
+                    <div class="down"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ajout-partie">
+              <button><i class="{{logoAdd}}"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div class="footer">

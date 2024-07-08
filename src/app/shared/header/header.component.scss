@@ -22,7 +22,7 @@ header{
       align-items: center;
       gap: 83px;
 
-      li{
+      li:hover{
         cursor: pointer;
       }
 
@@ -47,7 +47,7 @@ header{
       }
 
       div{
-        //border-block: 0 solid $accentColor;
+        border-block: 0 solid $accentColor;
         height: 100%;
         display: flex;
         align-items: center;
@@ -56,7 +56,7 @@ header{
       }
 
       div:hover{
-        //border-block: 4px solid $accentColor;
+        border-block: 4px solid $accentColor;
         cursor: pointer;
       }
     }

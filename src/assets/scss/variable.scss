@@ -3,7 +3,7 @@
 //$mainColor : #00d4ff;
 //$btnColor : #ffd900;
 //$accentColor : #e6e6e6;
-$mainColor : #4258F0;
+$mainColor : #4258f0;
 $accentColor : #5ecaeb;
 $btnColor : #ebca5e;
 //$btnColor2 : #ebb96e;
@@ -14,6 +14,12 @@ p, li, span{
   color: $writingColor;
   font-family: 'Conthrax', sans-serif;
   cursor: default;
+}
+
+input, input::placeholder{
+  color: $writingColor;
+  font-family: 'Conthrax', sans-serif;
+  font-size: 12px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -37,7 +43,4 @@ button{
   cursor: pointer;
 }
 
-//body{
-//  background: url("../img/bg-galaxy.jpg") center/cover no-repeat;
-//  image-rendering: optimizeQuality;
-//}
+

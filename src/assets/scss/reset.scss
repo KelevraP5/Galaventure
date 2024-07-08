@@ -56,7 +56,7 @@ p, span{
 }
 
 .wrap {
-  max-width: 1439px;
+  max-width: (calc(1200/1440)*100dvw);
   width: 100%;
   margin: 0 auto;
   padding-block: 2rem;

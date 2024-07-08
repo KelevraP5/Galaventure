@@ -12,4 +12,6 @@ export class FooterComponent {
   nb_campagne : number = 165;
 
   logoRS1 : string = "fa-brands fa-discord";
+  logoRS2 : string = "fa-brands fa-x-twitter";
+  logoRS3 : string = "fa-brands fa-instagram";
 }

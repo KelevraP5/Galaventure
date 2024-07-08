@@ -9,5 +9,5 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   styleUrl: '../allRegles.component.scss'
 })
 export class ReglesMJComponent {
- title : string = 'Règles pour le maître du jeu';
+ title : string = 'Règles pour le mj';
 }
