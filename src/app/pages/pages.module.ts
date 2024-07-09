@@ -14,8 +14,7 @@ import {AuthComponent} from "./auth/auth.component";
 
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     HomeComponent,

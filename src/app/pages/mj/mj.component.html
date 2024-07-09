@@ -44,7 +44,7 @@
             </div>
 
             <div class="ajout-partie">
-              <button><i class="{{logoAdd}}"></i></button>
+              <button (click)="openDialog()"><i class="{{logoAdd}}"></i></button>
             </div>
           </div>
         </div>
@@ -54,5 +54,15 @@
 
   <div class="footer">
     <app-footer></app-footer>
+  </div>
+
+  <div class="wrap">
+    <dialog id="popupDialog" class="popup-dialog">
+      <div class="popup-content">
+        <button class="close" (click)="closeDialog()">&times;</button>
+        <h2>Ajouter une nouvelle partie</h2>
+        <!-- Ajoutez ici le formulaire ou le contenu du pop-up -->
+      </div>
+    </dialog>
   </div>
 </div>

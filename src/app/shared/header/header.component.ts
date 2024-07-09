@@ -10,6 +10,7 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 })
 export class HeaderComponent {
   logo : string = 'https://picsum.photos/200/300';
+  // logo : string = 'assets/img/upArrow.svg';
   header1 : string = 'Le Lore';
   header2 : string = 'Les Règles';
   header3 : string = 'Partie maître du jeu';

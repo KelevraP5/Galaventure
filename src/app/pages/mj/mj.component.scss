@@ -117,4 +117,13 @@ section{
       }
     }
   }
+  .popup-dialog{
+    border: 2px dashed red;
+    width: 90%;
+    height: calc(100% - 117px);
+    margin: 2rem auto;
+    .popup-content{
+      background: lime;
+    }
+  }
 }
