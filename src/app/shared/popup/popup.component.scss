@@ -14,9 +14,12 @@
       padding-inline: 1rem;
 
       & span{
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         cursor: pointer;
         color: red;
+        transform: scale(200%);
+
+
       }
     }
   }

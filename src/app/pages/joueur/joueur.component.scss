@@ -1,18 +1,18 @@
 @import "../../../styles";
 
-section{
+section {
   margin-bottom: 64px;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  main{
+  main {
     flex-grow: 1;
 
-    .bandeau-chara{
+    .bandeau-chara {
       width: 100%;
       height: 71px;
       display: flex;
@@ -20,42 +20,42 @@ section{
       align-items: center;
       border: 1px solid black;
 
-      .left, .right{
+      .left, .right {
         display: flex;
         align-items: center;
         height: 100%;
       }
 
-      .left{
+      .left {
         width: 60%;
         justify-content: space-between;
         padding-left: 7rem;
         padding-right: 2rem;
       }
 
-      .right{
+      .right {
         width: 40%;
 
-        .triage-chara{
+        .triage-chara {
           display: flex;
 
-          input{
+          input {
             padding-block: 1rem;
             width: 90%;
             cursor: default;
             background: hotpink;
 
-            &:focus{
+            &:focus {
               outline: none;
             }
           }
 
-          .creation-chara, .date-chara{
+          .creation-chara, .date-chara {
             position: relative;
             width: 85%;
           }
-          .arrows{
-            .up{
+          .arrows {
+            .up {
               background: url("../../../assets/img/upArrow.svg") center/cover no-repeat;
               width: 1rem;
               height: 1rem;
@@ -63,7 +63,7 @@ section{
               top: 0;
               right: 1rem;
             }
-            .down{
+            .down {
               background: url("../../../assets/img/upArrow.svg") center/cover no-repeat;
               width: 1rem;
               height: 1rem;
@@ -75,11 +75,11 @@ section{
           }
         }
 
-        .ajout-chara{
+        .ajout-chara {
           height: 100%;
           width: calc(100%/5);
 
-          button{
+          button {
             width: 100%;
             height: 100%;
             background: transparent;
@@ -97,19 +97,19 @@ section{
         }
       }
 
-      .recherche-chara{
+      .recherche-chara {
         display: flex;
         flex-wrap: nowrap;
         gap: .5rem;
         width: fit-content;
 
-        input{
+        input {
           padding-block: 1rem;
           width: 85%;
           border: 1px solid black;
         }
 
-        button{
+        button {
           font-size: 1.5rem;
           background: transparent;
           border: none;
@@ -119,49 +119,45 @@ section{
     }
   }
 
-  .content-wrap{
+  .content-wrap {
     width: (calc(1098/1196)*100%);
     margin: 2rem auto 0;
 
-    .popup-title{
+    .popup-title {
       text-align: center;
       padding-block: .5rem;
       margin-bottom: 2rem;
     }
-    .popup-content{
-      background: magenta;
-      form{
+    .popup-content {
+      form {
         margin: 1rem auto;
         width: 100%;
-        background: blue;
 
-        .infos-chara{
-          background: lime;
+        .infos-chara {
           width: 100%;
           display: flex;
           gap: 2rem;
 
-          .input-group{
+          .input-group {
             display: flex;
             flex-direction: column;
             width: 100%;
             margin-bottom: 2rem;
 
-            label{
+            label {
               text-indent: 1rem;
             }
 
-            input{
-              //width: (calc(100%/3)*100%);
+            input {
               border: 1px solid $writingColor;
             }
           }
         }
       }
-      .btn-create-chara{
+      .btn-create-chara {
         text-align: center;
 
-        button{
+        button {
           color: $writingColor;
           font-family: 'Airstrike', sans-serif;
           font-size: 18px;
@@ -194,6 +190,115 @@ section{
           }
           50% {
             opacity: 0.5;
+          }
+        }
+      }
+
+      form{
+        margin-bottom: 4rem;
+
+        .abilites-chara {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+
+          .title {
+            text-align: center;
+            padding-block: 1rem;
+          }
+
+          .stats-inventaire {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .stats {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 1rem;
+              width: 100%;
+
+              .stat-group {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                p {
+                  margin-right: 1rem;
+                }
+
+                input {
+                  text-align: center;
+                  width: 20%;
+                  margin-right: .3rem;
+                  border: 1px solid $writingColor;
+                }
+              }
+            }
+
+            .inventaire {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              .content {
+                width: 100%;
+                input {
+                  width: 100%;
+                  border: 1px solid $writingColor;
+                }
+              }
+
+              .groupe-inventaire {
+                width: 100%;
+
+                ul {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 1rem;
+                }
+              }
+            }
+          }
+
+          .all-competences {
+            width: 65.7%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .base-comp, .classe_comp {
+              .title{
+                background: lightblue;
+                padding-block: .5rem;
+                margin-bottom: 1rem;
+              }
+              .content {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+                gap: 1rem;
+                padding-inline: .5rem;
+
+                .check-comp {
+                  display: flex;
+                  align-items: baseline;
+                  gap: .5rem;
+
+                  label {
+                    margin-top: 0;
+                  }
+
+                  input[type=checkbox] {
+                    width: .9rem;
+                    height: .9rem;
+                  }
+                }
+              }
+            }
           }
         }
       }

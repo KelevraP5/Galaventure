@@ -14,7 +14,6 @@
 
             <div class="recherche-chara">
               <input type="text" id="recherche_chara" name="recherche_chara" placeholder="Rechercher personnage">
-
               <button type="submit"><i class="{{logoRecherche}}"></i></button>
             </div>
           </div>
@@ -33,8 +32,7 @@
 
               <div class="input-and-arrows">
                 <div class="date-chara">
-                  <input type="text" id="chara_jouee" name="triage_chara" placeholder="Nom de chara" readonly>
-
+                  <input type="text" id="chara_jouee" name="triage_chara" placeholder="Nom de perso" readonly>
                   <div class="arrows">
                     <div class="up"></div>
                     <div class="down"></div>
@@ -56,69 +54,197 @@
     <app-footer></app-footer>
   </div>
 
+  <app-popup>
+    <div class="content-wrap">
+      <div class="popup-title">
+        <h3>Création d'un personnage</h3>
+      </div>
+      <div class="popup-content">
+        <form action="" method="" novalidate>
+          <div class="infos-chara">
+            <div class="input-group">
+              <label for="chara_name">Nom du personnage</label>
+              <input type="text" name="create_chara" id="chara_name" placeholder="Rentrer le nom de votre personnage">
+              <span class="error"></span>
+            </div>
 
-      <app-popup>
-        <div class="content-wrap">
-          <div class="popup-title">
-            <h3>Création d'un personnage</h3>
-          </div>
-          <div class="popup-content">
-            <form action="" method="" novalidate>
-              <div class="infos-chara">
-                <div class="input-group">
-                  <label for="chara_name">Nom du personnage</label>
-                  <input type="text" name="create_chara" id="chara_name" placeholder="Rentrer le nom de votre personnage">
-                  <span class="error"></span>
-                </div>
+            <div class="input-group">
+              <label for="chara_name">Race</label>
+              <input type="text" name="create_chara" id="chara_race" placeholder="Rentrer la race de votre personnage">
+              <span class="error"></span>
+            </div>
 
-                <div class="input-group">
-                  <label for="chara_name">Race</label>
-                  <input type="text" name="create_chara" id="chara_race" placeholder="Rentrer la race de votre personnage">
-                  <span class="error"></span>
-                </div>
-
-                <div class="input-group">
-                  <label for="chara_name">Classe</label>
-                  <input type="text" name="create_chara" id="chara_classe" placeholder="Rentrer la classe de votre personnage">
-                  <span class="error"></span>
-                </div>
-              </div>
-
-              <div class="stats-inventaire">
-                <div class="stats">
-                  <div class="title">
-                    <h3>Points à dépenser {{nbPoints}}</h3>
-                  </div>
-
-                  <div class="content">
-                    <div class="stat-group">
-                      <p>Statistique 1</p>
-                      <input type="number" id="stat_1" name="stat" step="5" value="10"><span>/100</span>
-                    </div>
-
-                    <div class="stat-group">
-                      <p>Statistique 2</p>
-                      <input type="number" id="stat_2" name="stat" step="5" value="10"><span>/100</span>
-                    </div>
-
-                    <div class="stat-group">
-                      <p>Statistique 3</p>
-                      <input type="number" id="stat_3" name="stat" step="5" value="10"><span>/100</span>
-                    </div>
-
-                    <div class="stat-group">
-                      <p>Statistique 4</p>
-                      <input type="number" id="stat_4" name="stat" step="5" value="10"><span>/100</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-
-            <div class="btn-create-chara">
-              <button type="submit">Créer votre personnage</button>
+            <div class="input-group">
+              <label for="chara_name">Classe</label>
+              <input type="text" name="create_chara" id="chara_classe" placeholder="Rentrer la classe de votre personnage">
+              <span class="error"></span>
             </div>
           </div>
+
+          <div class="abilites-chara">
+            <div class="stats-inventaire">
+              <div class="stats">
+                <div class="title">
+                  <h4>Points à dépenser {{nbPoints}}</h4>
+                </div>
+
+                <div class="content">
+                  <div class="stat-group">
+                    <p>Statistique 1</p>
+                    <input type="number" id="stat_1" name="stat" step="5" min="10" max="95" value="10" (input)="updatePoints($event)">
+                    <span>/100</span>
+                  </div>
+
+                  <div class="stat-group">
+                    <p>Statistique 2</p>
+                    <input type="number" id="stat_2" name="stat" step="5" min="10" max="95" value="10" (input)="updatePoints($event)">
+                    <span>/100</span>
+                  </div>
+
+                  <div class="stat-group">
+                    <p>Statistique 3</p>
+                    <input type="number" id="stat_3" name="stat" step="5" min="10" max="95" value="10" (input)="updatePoints($event)">
+                    <span>/100</span>
+                  </div>
+
+                  <div class="stat-group">
+                    <p>Statistique 4</p>
+                    <input type="number" id="stat_4" name="stat" step="5" min="10" max="95" value="10" (input)="updatePoints($event)">
+                    <span>/100</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inventaire">
+                <div class="title">
+                  <h4>Inventaire</h4>
+                </div>
+
+                <div class="content">
+                  <input type="text" name="inventaire" id="inventaire" [(ngModel)]="inventaire" (keyup.enter)="addToInventaire()">
+                  <div class="groupe-inventaire">
+                    <ul>
+                      <li *ngFor="let item of inventaireList">{{ item }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="all-competences">
+              <div class="base-comp">
+                <div class="title">
+                  <h4>Compétences basique</h4>
+                </div>
+
+                <div class="content">
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp1">
+                    <label for="bas_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp2">
+                    <label for="bas_comp2"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp3">
+                    <label for="bas_comp3"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp4">
+                    <label for="bas_comp4"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp5">
+                    <label for="bas_comp5"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="bas_comp6">
+                    <label for="bas_comp6"><span>Compétence</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="classe_comp">
+                <div class="title">
+                  <h4>Compétences de classe</h4>
+                </div>
+
+                <div class="content">
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp1">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp2">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp3">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp4">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp5">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp6">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp7">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp8">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp9">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp10">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp11">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+
+                  <div class="check-comp">
+                    <input type="checkbox" name="competence" id="classe_comp12">
+                    <label for="classe_comp1"><span>Compétence</span></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="btn-create-chara">
+          <button type="submit">Créer votre personnage</button>
         </div>
-      </app-popup>
+      </div>
     </div>
+  </app-popup>
+</div>
