@@ -15,7 +15,6 @@ footer{
       justify-content: space-between;
 
       .rs-et-titre{
-        //background: red;
         display: flex;
         flex-direction: column;
 
@@ -45,7 +44,6 @@ footer{
 
                 &:hover{
                   opacity: 0.7;
-                  //filter: invert(100%);
                 }
               }
             }

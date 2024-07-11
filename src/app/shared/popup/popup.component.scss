@@ -1,0 +1,23 @@
+@import "../../../styles";
+
+#popup-dialog{
+  width: (calc(1200/1440)*100dvw);
+  height: calc(100% - 117px);
+  margin: 2rem auto;
+
+  .close{
+    text-align: right;
+
+
+    & div{
+      width: 100%;
+      padding-inline: 1rem;
+
+      & span{
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: red;
+      }
+    }
+  }
+}

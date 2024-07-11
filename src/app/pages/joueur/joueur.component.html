@@ -4,26 +4,26 @@
   </div>
 
   <main>
-    <section id="infos-parties">
+    <section id="infos-chara">
       <div class="wrap">
-        <div class="bandeau-parties">
+        <div class="bandeau-chara">
           <div class="left">
             <div class="title">
-              <h4>Vos Parties</h4>
+              <h4>Vos Personnages</h4>
             </div>
 
-            <div class="recherche-parties">
-              <input type="text" id="recherche_partie" name="recherche_partie" placeholder="Rechercher personnage">
+            <div class="recherche-chara">
+              <input type="text" id="recherche_chara" name="recherche_chara" placeholder="Rechercher personnage">
 
               <button type="submit"><i class="{{logoRecherche}}"></i></button>
             </div>
           </div>
 
           <div class="right">
-            <div class="triage-parties">
+            <div class="triage-chara">
               <div class="input-and-arrows">
-                <div class="creation-partie">
-                  <input type="text" id="creation_partie" name="triage_partie" placeholder="Classes jouées" readonly>
+                <div class="creation-chara">
+                  <input type="text" id="creation_chara" name="triage_chara" placeholder="Classes jouées" readonly>
                   <div class="arrows">
                     <div class="up"></div>
                     <div class="down"></div>
@@ -32,8 +32,8 @@
               </div>
 
               <div class="input-and-arrows">
-                <div class="date-partie">
-                  <input type="text" id="partie_jouee" name="triage_partie" placeholder="Nom de partie" readonly>
+                <div class="date-chara">
+                  <input type="text" id="chara_jouee" name="triage_chara" placeholder="Nom de chara" readonly>
 
                   <div class="arrows">
                     <div class="up"></div>
@@ -43,8 +43,8 @@
               </div>
             </div>
 
-            <div class="ajout-partie">
-              <button><i class="{{logoAdd}}"></i></button>
+            <div class="ajout-chara">
+              <button (click)="openDialog()" title="Créer votre personnage"><i class="{{logoAdd}}"></i></button>
             </div>
           </div>
         </div>
@@ -55,4 +55,70 @@
   <div class="footer">
     <app-footer></app-footer>
   </div>
-</div>
+
+
+      <app-popup>
+        <div class="content-wrap">
+          <div class="popup-title">
+            <h3>Création d'un personnage</h3>
+          </div>
+          <div class="popup-content">
+            <form action="" method="" novalidate>
+              <div class="infos-chara">
+                <div class="input-group">
+                  <label for="chara_name">Nom du personnage</label>
+                  <input type="text" name="create_chara" id="chara_name" placeholder="Rentrer le nom de votre personnage">
+                  <span class="error"></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="chara_name">Race</label>
+                  <input type="text" name="create_chara" id="chara_race" placeholder="Rentrer la race de votre personnage">
+                  <span class="error"></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="chara_name">Classe</label>
+                  <input type="text" name="create_chara" id="chara_classe" placeholder="Rentrer la classe de votre personnage">
+                  <span class="error"></span>
+                </div>
+              </div>
+
+              <div class="stats-inventaire">
+                <div class="stats">
+                  <div class="title">
+                    <h3>Points à dépenser {{nbPoints}}</h3>
+                  </div>
+
+                  <div class="content">
+                    <div class="stat-group">
+                      <p>Statistique 1</p>
+                      <input type="number" id="stat_1" name="stat" step="5" value="10"><span>/100</span>
+                    </div>
+
+                    <div class="stat-group">
+                      <p>Statistique 2</p>
+                      <input type="number" id="stat_2" name="stat" step="5" value="10"><span>/100</span>
+                    </div>
+
+                    <div class="stat-group">
+                      <p>Statistique 3</p>
+                      <input type="number" id="stat_3" name="stat" step="5" value="10"><span>/100</span>
+                    </div>
+
+                    <div class="stat-group">
+                      <p>Statistique 4</p>
+                      <input type="number" id="stat_4" name="stat" step="5" value="10"><span>/100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div class="btn-create-chara">
+              <button type="submit">Créer votre personnage</button>
+            </div>
+          </div>
+        </div>
+      </app-popup>
+    </div>
