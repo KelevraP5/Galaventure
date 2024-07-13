@@ -58,6 +58,10 @@ section{
             .front-content, .back-content{
               width: 100%;
               height: 100%;
+
+              i{
+                font-size: 1.8rem;
+              }
             }
 
             .front-content.first, .back-content.last{
@@ -145,9 +149,9 @@ section{
 
             .race-content {
               background: purple;
-              flex-grow: 1; /* Ensure this element takes up remaining space */
+              flex-grow: 1;
               ul {
-                list-style: none; /* Ensure list styles are applied correctly */
+                list-style: none;
                 .resume, .bonus-stats, .bonus-comp {
                   padding-left: 1.5rem;
                   position: relative;

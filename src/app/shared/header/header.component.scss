@@ -11,8 +11,8 @@ header{
     position: fixed;
     width: 100%;
     height: 117px;
-    border-bottom: 2px solid $writingColor;
-    //background: $mainColor;
+    border-bottom: 2px solid $whiteWritingColor;
+    background: $mainColor;
     z-index: 100;
 
     ul{
@@ -22,7 +22,8 @@ header{
       align-items: center;
       gap: 83px;
 
-      li:hover{
+      li{
+        color: $whiteWritingColor;
         cursor: pointer;
       }
 
@@ -47,7 +48,7 @@ header{
       }
 
       div{
-        border-block: 0 solid $accentColor;
+        border-block: 0 solid $secondColor;
         height: 100%;
         display: flex;
         align-items: center;
@@ -56,7 +57,7 @@ header{
       }
 
       div:hover{
-        border-block: 4px solid $accentColor;
+        border-block: 4px solid $secondColor;
         cursor: pointer;
       }
     }

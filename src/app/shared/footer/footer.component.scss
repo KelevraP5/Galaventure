@@ -1,10 +1,11 @@
 @import "../../../styles";
 
 footer{
-  border-top: 2px solid $writingColor;
+  border-top: 2px solid $whiteWritingColor;
   padding: 2rem 0 1rem;
   flex-grow: 0;
   flex-shrink: 0;
+  background-color: $mainColor;
 
   .footer-wrap{
     width: 90%;
@@ -13,6 +14,14 @@ footer{
     .liste-titre{
       display: flex;
       justify-content: space-between;
+
+      li{
+        background-color: $secondColor;
+        padding: .5rem 2rem;
+        color: $whiteWritingColor;
+        font-family: 'Airstrike', sans-serif;
+        font-size: 20px;
+      }
 
       .rs-et-titre{
         display: flex;
@@ -39,11 +48,12 @@ footer{
 
               i{
                 font-size: 30px;
-                color: black;
-                transition: opacity .5s;
+                color: $accentColor;
+                transition: color .5s;
 
                 &:hover{
-                  opacity: 0.7;
+                  color: $secondColor;
+                  //opacity: 0.5;
                 }
               }
             }

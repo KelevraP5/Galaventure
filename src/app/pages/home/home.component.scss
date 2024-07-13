@@ -1,11 +1,12 @@
 @import "../../../styles";
 
 section{
-  margin-bottom: 64px;
+  padding-bottom: 64px;
 }
 
 main {
   flex-grow: 1;
+  background-color : $mainColor;
 
   #accueil{
     .bg-img{
@@ -44,7 +45,7 @@ main {
 
   #joueur{
     .card-joueur{
-      background: rgba($accentColor, .8);
+      background: rgba($secondColor, .8);
 
       .wrap-joueur{
         width: 95%;
@@ -52,7 +53,7 @@ main {
         padding: 2rem 0;
 
         .sub-title{
-          background: rgba($mainColor, .3);
+          background: $accentColor;
           padding: .5rem;
           margin-bottom: 4rem;
           text-align: center;
@@ -101,7 +102,7 @@ main {
 
   #MJ{
     .card-MJ{
-      background: rgba($accentColor, .8);
+      background: rgba($secondColor, .8);
 
       .wrap-MJ{
         width: 95%;
@@ -109,7 +110,7 @@ main {
         padding: 2rem 0;
 
         .sub-title{
-          background: rgba($mainColor, .3);
+          background: $accentColor;
           padding: .5rem;
           margin-bottom: 4rem;
           text-align: center;

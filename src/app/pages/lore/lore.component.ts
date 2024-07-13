@@ -14,8 +14,8 @@ import {Page2Component} from "../../shared/lorePages/mondeHistoire/page_2/page2.
   styleUrl: './lore.component.scss'
 })
 export class LoreComponent {
-  nextArrow : string = "fa-solid fa-arrow-right";
-  previousArrow : string = "fa-solid fa-arrow-left";
+  nextArrow : string = "fa-solid fa-circle-right";
+  previousArrow : string = "fa-solid fa-circle-left";
 
   currentLocation : number = 1;
 
