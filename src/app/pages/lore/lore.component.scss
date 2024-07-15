@@ -11,6 +11,7 @@ section{
 
   main{
     flex-grow: 1;
+    background-color: $mainColor;
 
     #lore{
       height: calc(100dvh - 117px);
@@ -35,7 +36,6 @@ section{
             perspective: 1500px;
 
             .front, .back{
-              background-color: lightblue;
               width: 100%;
               height: 100%;
               top: 0;
@@ -43,6 +43,7 @@ section{
               position: absolute;
               transform-origin: left;
               transition: transform .5s;
+              background-color: $accentColor;
             }
 
             .front{
@@ -68,6 +69,16 @@ section{
               display: flex;
               justify-content: center;
               align-items: center;
+              background-color: $secondColor;
+
+              h3{
+                color: $whiteWritingColor;
+                text-shadow:
+                  -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                  -1px 1px 0 #000,
+                  1px 1px 0 #000;
+              }
             }
 
             .back-content{
@@ -123,18 +134,21 @@ section{
 
         .title {
           text-align: center;
-          padding: 2rem;
-          background: lightblue;
+          padding: 1rem;
+          background: $secondColor;
+
+          h2{
+            color: $whiteWritingColor;
+          }
         }
 
         .cards {
           display: flex;
           gap: 7px;
-          border: 1px solid black;
           height: 100%;
 
           .card {
-            background: blue;
+            background: $accentColor;
             width: calc(100% / 4);
             flex-grow: 1;
             padding: 1rem .5rem .5rem;
@@ -142,17 +156,23 @@ section{
             flex-direction: column;
 
             .race-name {
-              background: lime;
+              background: $secondColor;
               margin-bottom: 1rem;
               text-align: center;
+
+              h3{
+                color: $whiteWritingColor;
+              }
             }
 
             .race-content {
-              background: purple;
+              background: $secondColor;
               flex-grow: 1;
               ul {
                 list-style: none;
+
                 .resume, .bonus-stats, .bonus-comp {
+                  color: $whiteWritingColor;
                   padding-left: 1.5rem;
                   position: relative;
                 }

@@ -4,22 +4,28 @@
   width: (calc(1200/1440)*100dvw);
   height: calc(100% - 117px);
   margin: 2rem auto;
+  background-color: $secondColor;
 
   .close{
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin: .5rem .5rem 0 0;
 
 
     & div{
-      width: 100%;
-      padding-inline: 1rem;
+      width: fit-content;
+      padding-inline: .5rem;
 
       & span{
         font-size: 1.8rem;
         cursor: pointer;
         color: red;
         transform: scale(200%);
+        transition: color .7s;
 
-
+        &:hover{
+          color: darkred;
+        }
       }
     }
   }
