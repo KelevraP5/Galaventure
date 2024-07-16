@@ -11,18 +11,23 @@ section{
 
   main{
     flex-grow: 1;
+    background-color: $mainColor;
 
     .all-regles{
-      border: 1px solid #4258F0;
+      border: 1px solid $accentColor;
       border-right: transparent;
       display: flex;
     }
 
     #classes{
       .classe-titre{
-        background: magenta;
+        background: $secondColor;
         padding: 1rem;
         text-align: center;
+
+        h3{
+          color: $whiteWritingColor;
+        }
       }
 
       .all-classes{
@@ -30,7 +35,7 @@ section{
         gap: .5rem;
 
         .classe{
-          background: blue;
+          background: $accentColor;
           padding: 1rem;
         }
       }

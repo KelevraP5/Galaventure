@@ -181,7 +181,7 @@ section{
                   position: absolute;
                   left: .5rem;
                   top: 0;
-                  color: #000;
+                  color: $whiteWritingColor;
                 }
 
                 .bonus-stats.first, .bonus-comp.first {
@@ -193,7 +193,7 @@ section{
                   position: absolute;
                   left: .5rem;
                   top: 1rem;
-                  color: #000;
+                  color: $whiteWritingColor;
                 }
               }
             }

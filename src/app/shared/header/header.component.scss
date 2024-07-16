@@ -48,7 +48,7 @@ header{
       }
 
       div{
-        border-block: 0 solid $secondColor;
+        border-block: 0 solid $accentColor;
         height: 100%;
         display: flex;
         align-items: center;
@@ -57,7 +57,7 @@ header{
       }
 
       div:hover{
-        border-block: 4px solid $secondColor;
+        border-block: 4px solid $accentColor;
         cursor: pointer;
       }
     }
