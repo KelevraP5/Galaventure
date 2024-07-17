@@ -253,6 +253,10 @@ section {
                 align-items: center;
                 margin-bottom: 1rem;
 
+                p, span{
+                  color: $whiteWritingColor;
+                }
+
                 p {
                   margin-right: 1rem;
                 }
@@ -292,6 +296,10 @@ section {
                   display: flex;
                   flex-wrap: wrap;
                   gap: 1rem;
+
+                  li{
+                    color: $whiteWritingColor;
+                  }
                 }
               }
             }
@@ -323,6 +331,10 @@ section {
 
                   label {
                     margin-top: 0;
+
+                    span{
+                      color: $whiteWritingColor;
+                    }
                   }
 
                   input[type=checkbox] {
