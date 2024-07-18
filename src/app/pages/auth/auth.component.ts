@@ -78,6 +78,7 @@ export class AuthComponent {
       this.authService.login(formData).subscribe(
         (response) => {
           localStorage.setItem('token', response.message.token);
+          console.log(localStorage);
           // this.router.navigate(['/dashboard']);
         },
         (error) => {

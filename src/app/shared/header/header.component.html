@@ -1,25 +1,25 @@
 <header>
   <nav>
     <ul>
-        <li class="logo" [routerLink]="''">
-          <img src="{{logo}}" alt="logo de Galaventure">
-        </li>
-      
-        <div [routerLink]="'/lore'">
-          <li >{{header1}}</li>
-        </div>
-        <div [routerLink]="'/regles'">
-          <li >{{header2}}</li>
-        </div>
-        <div [routerLink]="'/mj'">
-          <li >{{header3}}</li>
-        </div>
-        <div [routerLink]="'/joueur'">
-          <li >{{header4}}</li>
-        </div>
-        <div [routerLink]="'/auth'">
-          <li >{{header5}}</li>
-        </div>
+      <li class="logo" [routerLink]="''">
+        <img [src]="logo" alt="logo de Galaventure">
+      </li>
+
+      <div [routerLink]="'/lore'">
+        <li>{{header1}}</li>
+      </div>
+      <div [routerLink]="'/regles'">
+        <li>{{header2}}</li>
+      </div>
+      <div [routerLink]="'/mj'">
+        <li>{{header3}}</li>
+      </div>
+      <div [routerLink]="'/joueur'">
+        <li>{{header4}}</li>
+      </div>
+      <div (click)="onAuthAction()">
+        <li>{{header5}}</li>
+      </div>
     </ul>
   </nav>
 </header>
