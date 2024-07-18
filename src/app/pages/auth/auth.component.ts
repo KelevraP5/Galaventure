@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
-import {Router, RouterOutlet} from '@angular/router';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgIf} from "@angular/common";
-import {HttpClient} from "@angular/common/http";
+import { RouterOutlet } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-auth',
@@ -15,70 +15,80 @@ import {HttpClient} from "@angular/common/http";
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent {
-  // loginForm: FormGroup;
-  // registerForm: FormGroup;
-  // submitted = false;
-  // error = '';
-  //
-  // constructor(
-  //   private formBuilder: FormBuilder,
-  //   private authService: AuthService,
-  //   private router: Router
-  // ) {
-  //   this.loginForm = this.formBuilder.group({
-  //     username: ['', Validators.required],
-  //     password: ['', Validators.required]
-  //   });
-  //
-  //   this.registerForm = this.formBuilder.group({
-  //     username: ['', Validators.required],
-  //     email: ['', [Validators.required, Validators.email]],
-  //     password: ['', [Validators.required, Validators.minLength(8)]],
-  //     confirmPassword: ['', Validators.required]
-  //   });
-  // }
-  //
-  // ngOnInit() {}
-  //
-  // // getters for easy access to form fields
-  // get f() { return this.loginForm.controls; }
-  // get fRegister() { return this.registerForm.controls; }
-  //
-  // onSubmit() {
-  //   this.submitted = true;
-  //
-  //   // stop here if form is invalid
-  //   if (this.loginForm.invalid) {
-  //     return;
-  //   }
-  //
-  //   this.authService.login(this.f['username'].value, this.f['password'].value)
-  //     .subscribe(
-  //       data => {
-  //         this.router.navigate(['/']);
-  //       },
-  //       error => {
-  //         this.error = error;
-  //       }
-  //     );
-  // }
-  //
-  // onSubmitRegister() {
-  //   this.submitted = true;
-  //
-  //   // stop here if form is invalid
-  //   if (this.registerForm.invalid) {
-  //     return;
-  //   }
-  //
-  //   this.authService.register(this.fRegister['username'].value, this.fRegister['email'].value, this.fRegister['password'].value)
-  //     .subscribe(
-  //       data => {
-  //         this.router.navigate(['/login']);
-  //       },
-  //       error => {
-  //         this.error = error;
-  //       }
-  //     );
-  // }
+  authForm: FormGroup;
+  loginForm: FormGroup;
+  data: any;
+  errorMessage: string = '';
+
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.authForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      pseudo: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8), this.passwordStrengthValidator]],
+      confirmPassword: ['', Validators.required]
+    }, { validator: this.passwordMatchValidator });
+
+    this.loginForm = this.fb.group({
+      emailOrPseudo: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  passwordMatchValidator(form: FormGroup): ValidationErrors | null {
+    return form.get('password')?.value === form.get('confirmPassword')?.value
+      ? null : { 'mismatch': true };
+  }
+
+  passwordStrengthValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (!value) return null;
+
+    const hasUpperCase = /[A-Z]+/.test(value);
+    const hasLowerCase = /[a-z]+/.test(value);
+    const hasNumeric = /[0-9]+/.test(value);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]+/.test(value);
+    const isValid = hasUpperCase && hasLowerCase && hasNumeric && hasSpecial;
+
+    return !isValid ? { 'passwordStrength': true } : null;
+  }
+
+  onRegisterSubmit(): void {
+    if (this.authForm.valid) {
+      const userData = {
+        email: this.authForm.get('email')?.value,
+        pseudo: this.authForm.get('pseudo')?.value,
+        password: this.authForm.get('password')?.value
+      };
+
+      this.authService.register(userData).subscribe(
+        response => {
+          this.data = response;
+          console.log('Réponse du serveur :', response);
+        },
+        error => {
+          console.error('Erreur lors de la requête HTTP :', error);
+        }
+      );
+    }
+  }
+
+  onLoginSubmit(): void {
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
+      this.authService.login(formData).subscribe(
+        (response) => {
+          localStorage.setItem('token', response.message.token);
+          // this.router.navigate(['/dashboard']);
+        },
+        (error) => {
+          if (error.status === 401) {
+            this.errorMessage = 'Email/pseudo ou mot de passe incorrect.';
+          } else {
+            this.errorMessage = 'Une erreur est survenue lors de la connexion.';
+          }
+          console.error('Erreur de connexion :', error);
+        }
+      )
+    }
+  }
 }
