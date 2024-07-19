@@ -3,91 +3,94 @@
     <app-header></app-header>
   </div>
 
-    <main>
-      <div class="wrap">
-        <div class="form-parent">
+  <main>
+    <div class="wrap">
+      <div class="form-parent">
+        <div class="connect-form">
+          <div class="form-and-title">
+            <div class="connect-title">
+              <h3>Connectez-vous à votre compte !</h3>
+            </div>
 
-          <div class="connect-form">
-            <div class="form-and-title">
-              <div class="connect-title">
-                <h3>Connectez-vous à votre compte !</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" novalidate>
+              <div class="input-group">
+                <label for="user-connect">Votre email ou pseudo</label>
+                <input type="text" id="user-connect" formControlName="emailOrPseudo" required>
+                <span class="error" *ngIf="loginForm.get('emailOrPseudo')?.invalid && loginForm.get('emailOrPseudo')?.touched">
+                  Email ou pseudo requis.
+                </span>
               </div>
 
-              <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" novalidate>
-                <div class="input-group">
-                  <label for="user-connect">Votre email ou pseudo</label>
-                  <input type="text" id="user-connect" formControlName="emailOrPseudo" required>
-                  <span class="error" *ngIf="loginForm.get('emailOrPseudo')?.invalid && loginForm.get('emailOrPseudo')?.touched">
-                    Email ou pseudo requis.
-                  </span>
-                </div>
-
-                <div class="input-group">
-                  <label for="pwd-connect">Votre mot de passe</label>
-                  <input type="password" id="pwd-connect" formControlName="password" required>
-                  <span class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-                    Mot de passe requis.
-                  </span>
-                </div>
-
-                <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
-              </form>
-            </div>
-          </div>
-
-
-          <div class="register-form">
-            <div class="form-and-title">
-              <div class="register-title">
-                <h3>Rejoignez l'aventure maintenant !</h3>
+              <div class="input-group">
+                <label for="pwd-connect">Votre mot de passe</label>
+                <input type="password" id="pwd-connect" formControlName="password" required>
+                <span class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                  Mot de passe requis.
+                </span>
               </div>
 
-              <form [formGroup]="authForm" (ngSubmit)="onRegisterSubmit()" novalidate>
-                <div class="infos-user">
-                  <div class="input-group">
-                    <label for="mail-register">Votre email</label>
-                    <input type="email" id="mail-register" formControlName="email" required>
-                    <span class="error" *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
-                      Email invalide.
-                    </span>
-                  </div>
+              <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+              <div class="error" *ngIf="loginForm.invalid && loginForm.touched">Tous les champs doivent être remplis correctement.</div>
+            </form>
+          </div>
+        </div>
 
-                  <div class="input-group">
-                    <label for="pseudo-register">Votre pseudo</label>
-                    <input type="text" id="pseudo-register" formControlName="pseudo" required>
-                    <span class="error" *ngIf="authForm.get('pseudo')?.invalid && authForm.get('pseudo')?.touched">
-                      Pseudo requis.
-                    </span>
-                  </div>
-                </div>
+        <div class="register-form">
+          <div class="form-and-title">
+            <div class="register-title">
+              <h3>Rejoignez l'aventure maintenant !</h3>
+            </div>
 
-                <div class="passwords">
-                  <div class="input-group">
-                    <label for="pwd1-register">Votre mot de passe</label>
-                    <input type="password" id="pwd1-register" formControlName="password" required minlength="8">
-                    <span class="error" *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
-                      Minimum 8 caractères, avec au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
-                    </span>
-                  </div>
-                </div>
-
+            <form [formGroup]="authForm" (ngSubmit)="onRegisterSubmit()" novalidate>
+              <div class="infos-user">
                 <div class="input-group">
-                  <label for="pwd2-register">Confirmez votre mot de passe</label>
-                  <input type="password" id="pwd2-register" formControlName="confirmPassword" required>
-                  <span class="error" *ngIf="authForm.errors?.['mismatch'] && authForm.get('confirmPassword')?.touched">
-                    Les mots de passe ne correspondent pas.
+                  <label for="mail-register">Votre email</label>
+                  <input type="email" id="mail-register" formControlName="email" required>
+                  <span class="error" *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
+                    Email invalide.
                   </span>
                 </div>
 
-                <button type="submit" [disabled]="authForm.invalid">S'inscrire</button>
-              </form>
-            </div>
+                <div class="input-group">
+                  <label for="pseudo-register">Votre pseudo</label>
+                  <input type="text" id="pseudo-register" formControlName="pseudo" required>
+                  <span class="error" *ngIf="authForm.get('pseudo')?.invalid && authForm.get('pseudo')?.touched">
+                    Pseudo requis.
+                  </span>
+                </div>
+              </div>
+
+              <div class="passwords">
+                <div class="input-group">
+                  <label for="pwd1-register">Votre mot de passe</label>
+                  <input type="password" id="pwd1-register" formControlName="password" required minlength="8">
+                  <span class="error" *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
+                    Minimum 8 caractères, avec au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
+                  </span>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="pwd2-register">Confirmez votre mot de passe</label>
+                <input type="password" id="pwd2-register" formControlName="confirmPassword" required>
+                <span class="error" *ngIf="authForm.errors?.['mismatch'] && authForm.get('confirmPassword')?.touched">
+                  Les mots de passe ne correspondent pas.
+                </span>
+              </div>
+
+              <button type="submit" [disabled]="authForm.invalid">S'inscrire</button>
+              <div class="error" *ngIf="authForm.invalid && authForm.touched">Tous les champs doivent être remplis correctement.</div>
+            </form>
           </div>
+        </div>
 
-
+        <div *ngIf="showSuccessPopupRegister" class="popup">
+          <h2>Inscription réussie !</h2>
+          <p>Veuillez vous connecter avec les informations rentrées lors de votre inscription</p>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
   <div class="footer">
     <app-footer></app-footer>

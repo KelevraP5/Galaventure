@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors }
 import { AuthService } from '../../service/auth.service';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { FooterComponent } from "../../shared/footer/footer.component";
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
@@ -19,8 +19,12 @@ export class AuthComponent {
   loginForm: FormGroup;
   data: any;
   errorMessage: string = '';
+  showSuccessPopupRegister: boolean = false;
+  showSuccessPopupLogin: boolean = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService,
+              private fb: FormBuilder,
+              private router: Router) {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       pseudo: ['', Validators.required],
@@ -63,23 +67,26 @@ export class AuthComponent {
       this.authService.register(userData).subscribe(
         response => {
           this.data = response;
-          console.log('Réponse du serveur :', response);
+          this.openSuccessRegister();
+          this.authForm.reset();
         },
         error => {
           console.error('Erreur lors de la requête HTTP :', error);
         }
       );
+    } else {
+      this.authForm.markAllAsTouched();
     }
   }
 
   onLoginSubmit(): void {
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
+
       this.authService.login(formData).subscribe(
         (response) => {
           localStorage.setItem('token', response.message.token);
-          console.log(localStorage);
-          // this.router.navigate(['/dashboard']);
+          this.router.navigate([''], { queryParams: { success: true } });
         },
         (error) => {
           if (error.status === 401) {
@@ -90,6 +97,22 @@ export class AuthComponent {
           console.error('Erreur de connexion :', error);
         }
       )
+    } else {
+      this.loginForm.markAllAsTouched();
     }
+  }
+
+  openSuccessRegister(): void {
+    this.showSuccessPopupRegister = true;
+    setTimeout(() => {
+      this.showSuccessPopupRegister = false;
+    }, 5000);
+  }
+
+  openSuccessLogin(): void {
+    this.showSuccessPopupLogin = true;
+    setTimeout(() => {
+      this.showSuccessPopupLogin = false;
+    }, 5000);
   }
 }
