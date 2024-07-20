@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
     if (this.isLoggedIn) {
       this.authService.logout();
       console.log(localStorage);
+      this.router.navigate([''])
     } else {
       this.router.navigate(['/auth']);
     }

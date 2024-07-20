@@ -6,6 +6,7 @@ import {MjComponent} from "./pages/mj/mj.component";
 import {ReglesComponent} from "./pages/regles/regles.component";
 import {JoueurComponent} from "./pages/joueur/joueur.component";
 import {AuthComponent} from "./pages/auth/auth.component";
+import {authGuard} from "./helpers/auth.guard";
 
 export const routes: Routes = [
   {
@@ -25,12 +26,14 @@ export const routes: Routes = [
 
   {
     path: "mj",
-    component: MjComponent
+    component: MjComponent,
+    canActivate: [authGuard]
   },
 
   {
     path: "joueur",
-    component: JoueurComponent
+    component: JoueurComponent,
+    canActivate: [authGuard]
   },
 
   {

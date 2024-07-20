@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { JwtInterceptor } from '../helpers/jwt.interceptor';
-// import { AuthService } from '../service/auth.service';
 
 import {HomeComponent} from "./home/home.component";
 import {LoreComponent} from "./lore/lore.component";
@@ -25,9 +22,6 @@ import {AuthComponent} from "./auth/auth.component";
     AuthComponent,
     SharedModule
   ],
-  providers: [
-    // AuthService,
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-  ],
+  providers: [],
 })
 export class PagesModule {}

@@ -30,7 +30,6 @@
               </div>
 
               <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
-              <div class="error" *ngIf="loginForm.invalid && loginForm.touched">Tous les champs doivent être remplis correctement.</div>
             </form>
           </div>
         </div>
@@ -79,7 +78,6 @@
               </div>
 
               <button type="submit" [disabled]="authForm.invalid">S'inscrire</button>
-              <div class="error" *ngIf="authForm.invalid && authForm.touched">Tous les champs doivent être remplis correctement.</div>
             </form>
           </div>
         </div>

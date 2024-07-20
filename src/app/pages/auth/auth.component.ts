@@ -21,6 +21,7 @@ export class AuthComponent {
   errorMessage: string = '';
   showSuccessPopupRegister: boolean = false;
   showSuccessPopupLogin: boolean = false;
+  submitted: boolean = false;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -57,6 +58,7 @@ export class AuthComponent {
   }
 
   onRegisterSubmit(): void {
+    this.submitted = true;
     if (this.authForm.valid) {
       const userData = {
         email: this.authForm.get('email')?.value,
@@ -69,6 +71,7 @@ export class AuthComponent {
           this.data = response;
           this.openSuccessRegister();
           this.authForm.reset();
+          this.submitted = false;
         },
         error => {
           console.error('Erreur lors de la requête HTTP :', error);
@@ -80,13 +83,17 @@ export class AuthComponent {
   }
 
   onLoginSubmit(): void {
+    this.submitted = true;
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
 
       this.authService.login(formData).subscribe(
         (response) => {
           localStorage.setItem('token', response.message.token);
+          console.log(localStorage);
           this.router.navigate([''], { queryParams: { success: true } });
+          this.openSuccessLogin();
+          this.submitted = false;
         },
         (error) => {
           if (error.status === 401) {
@@ -96,7 +103,7 @@ export class AuthComponent {
           }
           console.error('Erreur de connexion :', error);
         }
-      )
+      );
     } else {
       this.loginForm.markAllAsTouched();
     }
