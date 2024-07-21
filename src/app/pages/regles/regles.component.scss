@@ -14,9 +14,9 @@ section{
     background-color: $mainColor;
 
     .all-regles{
-      border: 1px solid $accentColor;
       border-right: transparent;
       display: flex;
+      z-index: 10;
     }
 
     #classes{

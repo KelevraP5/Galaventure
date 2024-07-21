@@ -57,8 +57,19 @@ export class AuthComponent {
     return !isValid ? { 'passwordStrength': true } : null;
   }
 
+  trimFormValues(form: FormGroup): void {
+    Object.keys(form.controls).forEach(key => {
+      const control = form.get(key);
+      if (control && typeof control.value === 'string') {
+        control.setValue(control.value.trim());
+      }
+    });
+  }
+
   onRegisterSubmit(): void {
     this.submitted = true;
+    this.trimFormValues(this.authForm);
+
     if (this.authForm.valid) {
       const userData = {
         email: this.authForm.get('email')?.value,
@@ -84,6 +95,8 @@ export class AuthComponent {
 
   onLoginSubmit(): void {
     this.submitted = true;
+    this.trimFormValues(this.loginForm);
+
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
 

@@ -3,7 +3,9 @@
 .wrap-regle {
   border-right: 1px solid $accentColor;
   padding: 1rem;
+  margin-right: .1rem;
   height: 100%;
+  background: $accentColor;
 
   .regle-titre {
     background: $secondColor;
@@ -17,6 +19,10 @@
   }
 
   .regle-list {
+    background: $secondColor;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+
     ul {
       list-style-type: disc;
       padding: 0 1rem 0 1.5rem;

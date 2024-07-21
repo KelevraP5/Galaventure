@@ -11,7 +11,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:4000/api/user/login';
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
-  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  isLoggedIn = this.isLoggedInSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
